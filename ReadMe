@@ -1,1 +1,11 @@
 This is a file made by Andrew.
+1. git status
+	Checks if there were any changes either made in the cloud or made on your machine.
+2. git pull
+	Pulls information from github to your machine
+3. git add (-A) (*)
+	Adds all of the changes that were made on your machine to the commit
+4. git commit (-m “text”)
+	Finalizes the commit and writes a comment for it
+5. git push
+	Pushes the finalized commit to github.
