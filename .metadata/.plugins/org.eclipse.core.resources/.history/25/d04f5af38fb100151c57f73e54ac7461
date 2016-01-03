@@ -1,0 +1,8 @@
+
+public abstract class Argument {
+	
+	protected String head;
+	private Modifier mod;
+	
+	public abstract void setHead(String s);
+}

@@ -1,0 +1,12 @@
+
+public class GerundPhrase extends Argument {
+
+	/*
+	
+	has
+	a present participle verb
+	a direct object //if verb is transitive
+	other modifiers
+	
+	*/
+}

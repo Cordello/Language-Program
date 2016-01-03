@@ -1,0 +1,14 @@
+import java.util.Queue;
+
+public class Statement extends Sentence {
+	
+	public void ReadIn(Queue<String> s) {
+		
+		/*
+		
+		
+		
+		*/
+	}
+
+}

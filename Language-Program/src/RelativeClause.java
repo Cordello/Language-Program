@@ -1,0 +1,12 @@
+
+public class RelativeClause extends Modifier{
+
+	/*
+	
+	has
+	a relative pronoun
+	a sentence //subject could be the relative pronoun, must be a statement
+	//should not have an infinitive phrase as subject
+	
+	*/
+}

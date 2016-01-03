@@ -1,0 +1,6 @@
+
+public abstract class Argument {
+	
+	private String head;
+	private Modifier mod;
+}

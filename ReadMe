@@ -1,4 +1,16 @@
-This is a file made by Andrew.
+
+The pseudo code was just me trying to get all my thoughts out there. It’s messy, but it may help.
+
+The tree diagrams are more important. They’re the summary of all the grammar research I’ve done over the past week and a half, although it ignores participle phrases, noun clauses, and conjunctions. No one cares about participle phrases, but the conjunctions thing is a really big hole. Noun clauses are easy, it’s basically when you use a relative clause as a subject/direct object. But since relative clauses are modifiers, I wasn’t sure how to structure it.
+
+The actual java file is a mess too, and it doesn’t entirely line up with the tree. For the arguments, instead of having three different kinds of main phrases/clauses, and then two types of modifiers, an argument can be three different kinds and inherit their ability to have modifiers. I’m not sure which is better. You’re the one with the java baby.
+
+I also have it structured so that a Sentence is an abstract class and it can be manifested as a statement, a question, or a command. I only started the statement class, but that’s because I don’t know how to distinguish which class you should be reading into once you start reading in the sentence. It could be as simple as if it’s a question word, start on a question, but noun clauses complicate that (“What I need is some peace and quiet” is a statement, not a question).
+
+Lastly, you’ll see all over in the comments that there needs to be a way to resolve what the next modifier is modifying. For instance, “He killed the woman in a fit of rage.” vs. “He killed the woman in the red dress.” In the first sentence, the prepositional phrase modifies the verb; it describes how he killed her. In the second, the prepositional phrase modifies the direct object; it specifies which woman, the one in the red dress. This is not a syntax problem, but rather a problem with context. For the purposes of grammar checking, it may be unnecessary, but it will be crucial when attempting to glean some kind of meaning.
+
+
+FOR SCOTT BECAUSE HE’S BAD AT GITHUB
 1. git status
 	Checks if there were any changes either made in the cloud or made on your machine.
 2. git pull

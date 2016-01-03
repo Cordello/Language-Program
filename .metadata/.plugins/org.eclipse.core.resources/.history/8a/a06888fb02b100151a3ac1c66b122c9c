@@ -1,0 +1,14 @@
+
+public class NounPhrase {
+
+	/*
+	
+	has
+	a determiner //possibly
+	adverbs //if any, must have at least one adjective
+	adjectives
+	nouns //multiple for things like "fruit flies"
+	(there must be a noun)
+	
+	*/
+}

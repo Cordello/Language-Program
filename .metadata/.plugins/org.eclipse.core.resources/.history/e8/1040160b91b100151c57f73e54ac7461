@@ -1,0 +1,36 @@
+import java.util.Queue;
+
+public class GerundPhrase extends Argument {
+
+	/*
+	
+	has
+	a present participle verb
+	a direct object //if verb is transitive
+	other modifiers
+	
+	*/
+	
+	//only if gerund is transitive
+	private Argument directOb; //weird if GerundPhrase
+	
+	public void setHead(String s) {
+		
+		//head must be a present participle (gerund)
+		head = s;
+	}
+	
+	public void setDirectOb(Argument dirOb) {
+		
+	}
+	
+	public void setMod(Modifier m) {
+		
+	}
+	
+	public void ReadIn(Queue<String> word) {
+		
+		//should resolve if Modifier is to Gerund or DO
+	}
+	
+}

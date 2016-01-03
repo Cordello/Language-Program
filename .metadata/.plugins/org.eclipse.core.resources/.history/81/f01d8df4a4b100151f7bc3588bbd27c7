@@ -1,0 +1,60 @@
+import java.util.Queue;
+
+public class NounPhrase extends Argument {
+
+	/*
+	
+	has
+	a determiner //possibly
+	adverbs //if any, must have at least one adjective
+	adjectives
+	nouns //multiple for things like "fruit flies"
+	(there must be a noun)
+	
+	*/
+	
+	private String determiner;
+	private String adverb;
+	private String adjective;
+	
+	public void setDeterminer(String det) {
+		
+		determiner = det;
+	}
+	
+	public void setAdverb(String adv) {
+		
+		if (adverb.isEmpty()) adverb = adv;
+		else adverb = adverb + " " + adv;
+	}
+	
+	public void setAdjective(String adj) {
+		
+		if (adjective.isEmpty()) adjective = adj;
+		else adjective = adjective + " " + adj;
+	}
+	
+	//head must be nouns
+	public void setHead(String s) {
+		
+		if (head.isEmpty()) head = s;
+		else head = head + " " + s;
+	}
+	
+	public void setMod(Modifier m) {
+		
+		
+	}
+	
+	public void ReadIn(Queue<String> word) {
+		
+		/*
+		
+		no det means noun is plural
+		adv means must have adj
+		must be in order: det, adv, adj, noun
+		pronoun means no det, adv, or adj
+		
+		*/
+	}
+}

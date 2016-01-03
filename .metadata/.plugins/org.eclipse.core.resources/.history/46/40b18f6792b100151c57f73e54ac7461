@@ -1,0 +1,12 @@
+
+public class InfinitivePhrase extends Argument {
+
+	/*
+	
+	has
+	an infinitive verb //"to verb"
+	a direct object //if the verb is transitive
+	other modifiers
+	
+	*/
+}

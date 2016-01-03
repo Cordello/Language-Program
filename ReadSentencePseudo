@@ -1,0 +1,131 @@
+//Pseudo code for reading in a sentence
+//Ignores absolute phrases and participle phrases
+//Because those are dumb
+
+//Also ERROR means the input is grammatically wrong
+//so there should be some way to work around that
+
+/*
+
+n = noun
+v = verb
+adj = adjective
+pro = pronoun
+adv = adverb
+conj = conjunction
+prep = preposition
+det = determinate (like 'the' or 'a' or 'every')
+
+ph = phrase
+cl = clause
+sub = subordinate/subordinating
+rel = relative
+
+pr = present
+pa = past
+fu = future
+
+part = participle
+
+*/
+
+void ReadSentence() 
+{
+	String word;
+	read in word;
+
+	if (word is det, adv, adj, n, pr part, or "to") 
+	{
+
+		Subject sub (make a subject) (that is a statement)
+		
+		if (word is det, adv, adj, or n)
+		{
+			make sub a n ph
+			
+			if (word is det) {sub.det = word; read in next word;}
+			else
+			{
+				while (word is adv) {sub.adv = word; read in next word;}
+				if (word is not adj or n) {ERROR}
+
+				while (word is adj) {sub.adj = word; read in next word;}
+				if (word is not n) {ERROR}
+
+				while (word is n) {sub.n = word; read in next word;} //the multiple nouns is for something like "fruit flies"
+				if (det = NULL) {last n must be plural or proper else ERROR
+					also pronouns should have no adverbs or adjectives
+				}
+			}
+
+			if (word is rel pr or prep)
+			{
+
+			}
+
+		}
+
+		else if (word is pr part) 
+		{
+			make sub a gerund
+
+			//read in the gerund stuff
+		}
+
+		else if (word is "to") 
+		{
+			make sub an infinitive ph
+
+			//read in infinitive stuff
+		}
+
+		//Done with subject stuff, now onto the verb stuff
+
+		if (word is adv or v) 
+		{
+			Verb verb (make a verb)
+
+			//read in verb stuff
+
+			if (verb.mainVerb is transitive only)
+			{
+				//expect direct object stuff or else ERROR
+			}
+			else if (verb.mainVerb is intransitive only)
+			{
+				//expect NO direct object stuff or else ERROR
+			}
+			else if (verb.mainVerb can be both transitive AND intransitive)
+			{
+				//Fuck, I don't know. See if there's noun stuff next, if not, intransitive, if yes, transitive
+			}
+		}
+		else {ERROR fragment}
+	}
+
+	else if (word is sub conj) 
+	{
+		make a sub cl
+		subCl.subConj = word
+		rest of the clause (ReadSentence())
+		//except different, must be a statement or ERROR, should not have infinitive ph or ERROR (possibly just style though)
+		//and after it's done, it needs to read in the main clause
+	}
+
+	else if (word is question pro or "do") 
+	{
+		//make a subject and make it interrogative
+		//read in question
+	}
+
+	else if (word is v and not "do") 
+	{
+		//make a subject and make it imperitive
+		//read in command
+	}
+
+	else 
+	{
+		ERROR, it might be a phrase we ignored, or some other error
+	}
+}

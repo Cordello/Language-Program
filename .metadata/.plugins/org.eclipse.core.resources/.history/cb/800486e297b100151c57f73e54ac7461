@@ -1,0 +1,29 @@
+import java.util.Queue;
+
+public abstract class Sentence {
+
+	/*
+	 
+	can be
+	a statement (declarative)
+	a question (interrogative)
+	a command (imperative)
+	(moods)
+	
+	has 
+	a subject
+	a verb
+	a direct object //terribly similar to a subject
+	(imperative has no subject)
+	 
+	*/
+	
+	private Argument subject; //imperative has no subject
+	private Predicate predicate;
+	
+	public void setSubject (Argument sub) {subject = sub;}
+	public void setPredicate (Predicate pred) {predicate = pred;}
+	
+	//differenct between moods
+	public abstract void ReadIn(Queue<String> s);
+}

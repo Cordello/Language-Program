@@ -1,0 +1,24 @@
+import java.util.Queue;
+
+public class Statement extends Sentence {
+	
+	public void ReadIn(Queue<String> s) {
+		
+		/*
+		
+		if (word is det, adv, adj, n)
+		{
+			NounPhrase nPh;
+			
+			if (word is det) nPh.setDeterminer(word.);
+			else 
+			{
+				while (s.peek() is adv) nPh.setAdverb(s.poll());
+				while (s.peek () is ad
+			}
+		}
+		
+		*/
+	}
+
+}
