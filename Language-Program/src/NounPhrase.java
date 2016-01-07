@@ -24,16 +24,12 @@ public class NounPhrase extends Argument {
 	}
 	
 	//head must be nouns
-	public void setHead(String s) {
+	/*public void setHead(String s) {
 		
 		if (head.isEmpty()) head = s;
 		else head = head + " " + s;
-	}
+	}*/
 	
-	public void setMod(Modifier m) {
-		
-		
-	}
 	
 	public void ReadIn(Queue<String> word) {
 		

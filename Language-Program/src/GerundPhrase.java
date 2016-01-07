@@ -6,25 +6,21 @@ public class GerundPhrase extends Argument {
 	private Argument directOb; //weird if GerundPhrase
 	
 	//head must be a present participle (gerund)
-	public void setHead(String s) {
+	/*public void setHead(String s) {
 		
-		head = s;
-	}
+		getHead() = s;
+	}*/
 	
 	public void setDirectOb(Argument dirOb) {
 		
 		directOb = dirOb;
 	}
 	
-	public void setMod(Modifier m) {
-		
-	}
-	
 	public void ReadIn(Queue<String> word) {
 		
 		setHead(word.poll());
 		
-		if(head == "transitive")
+		if(getHead() == "transitive")
 		{
 			if (word.peek() == "det, adv, adj, or noun")
 			{
