@@ -6,17 +6,14 @@ public class InfinitivePhrase extends Argument {
 	private Argument directOb;
 	
 	//head must be an infinitive, e.g. "to be"
-	public void setHead(String s) {
+	/*public void setHead(String s) {
 		
-	}
+	}*/
 	
 	public void setDirectOb(Argument dirOb) {
 		
 	}
 	
-	public void setMod(Modifier m) {
-		
-	}
 	
 	public void ReadIn(Queue<String> word) {
 		
