@@ -1,0 +1,47 @@
+import java.util.Queue;
+
+public class Predicate {
+
+	private VerbPhrase verb;
+	private Argument directOb;
+	private Modifier mod;
+	
+	public void setVerb(VerbPhrase v) {
+		verb = v;
+	}
+	
+	public void setDirectOb(Argument dirOb) {
+		directOb = dirOb;
+	}
+	
+	public void setMod(Modifier m) {
+		mod = m;
+	}
+	
+	public void ReadIn(Queue<String> word) {
+		
+		VerbPhrase v = new VerbPhrase();
+		v.ReadIn(word);
+		setVerb(v);
+		
+		if (v.getVerb() == "transitive")
+		{
+			Argument dirOb = Argument.castArg(word);
+			dirOb.ReadIn(word);
+			setDirectOb(dirOb);
+		}
+		//if it could be transitive or intransitive, wait and see if there is a DO
+		
+		if (word.peek() == "prep or sub conj")
+		{
+			if (word.peek() == "prep")
+			{
+				//Read in prepositional phrase
+			}
+			else if (word.peek() == "sub conj")
+			{
+				//Read in subordinate clause
+			}
+		}
+	}
+}

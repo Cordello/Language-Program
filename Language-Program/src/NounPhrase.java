@@ -31,7 +31,7 @@ public class NounPhrase extends Argument {
 	}*/
 	
 	
-	public void ReadIn(Queue<String> word) {
+	public boolean ReadIn(Queue<String> word) {
 		
 		if (word.peek() == "det")
 		{
@@ -56,19 +56,27 @@ public class NounPhrase extends Argument {
 			}
 		}
 		
-		//done with main, start on modifiers
+		//Read in any modifiers, if they exist
 		//special if NounPhrase == pronoun (probably no mods)
 		while (word.peek() == "prep or rel pro")
 		{
 			if (word.peek() == "prep")
 			{
-				//Read in prepositional phrase
+				PrepositionalPhrase prep = new PrepositionalPhrase();
+				prep.ReadIn(word);
+				setMod(prep);
 			}
 			else if (word.peek() == "rel pro")
 			{
-				//Read in relative phrase
+				RelativeClause rel = new RelativeClause();
+				rel.ReadIn(word);
+				setMod(rel);
 			}
-			//should resolve whether other modifiers mod NounPhrase or Args of the modifiers
 		}
+		//should resolve whether (other) modifiers mod gerund(head), Arg of DO, or Args of modifiers
+		//no fucking clue how
+		
+		//Not an empty object
+		return true;
 	}
 }

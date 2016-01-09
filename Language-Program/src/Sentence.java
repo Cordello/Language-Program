@@ -26,4 +26,5 @@ public abstract class Sentence {
 	
 	//different between moods
 	public abstract void ReadIn(Queue<String> word);
+	
 }

@@ -1,0 +1,71 @@
+import java.util.Queue;
+
+public class GerundPhrase extends Argument {
+
+	private Argument directOb;
+	
+	public void setDirectOb(Argument dirOb) {
+		
+		directOb = dirOb;
+	}
+	
+	public boolean ReadIn(Queue<String> word) {
+		
+		//Head is a present participle, ie a gerund
+		setHead(word.poll());
+		
+		//If the gerund is strictly transitive, it requires a direct object
+		if(getHead() == "transitive and NOT intransitive")
+		{
+			Argument dirOb = Argument.castArg(word);
+			if (dirOb.ReadIn(word) == false) //false means EmptyArgument
+			{
+				//ERROR, need a direct object
+			}
+			else if(dirOb instanceof GerundPhrase )
+			{
+				//ERROR, for style; a gerund on a gerund is WEIRD
+			}
+			
+			setDirectOb(dirOb);
+		}
+		
+		//if the gerund could be either transitive or intransitive, direct object possible but not required
+		else if(getHead() == "transitive and intransitive")
+		{
+			Argument dirOb = Argument.castArg(word);
+			dirOb.ReadIn(word);
+			setDirectOb(dirOb);
+		}
+		
+		//if gerund is intransitive, there must be no direct object
+		else 
+		{
+			Argument dirOb = Argument.castArg(word);
+			if (dirOb.ReadIn(word))
+			{
+				//ERROR must have no direct object
+			}
+		}
+		
+		//Read in any modifiers, if they exist
+		while (word.peek() == "prep or rel pro")
+		{
+			if (word.peek() == "prep")
+			{
+				PrepositionalPhrase prep = new PrepositionalPhrase();
+				prep.ReadIn(word);
+				setMod(prep);
+			}
+			if (word.peek() == "rel pro")
+			{
+				//Read in relative clause
+			}
+		}
+		//should resolve whether (other) modifiers mod gerund(head), Arg of DO, or Args of modifiers
+		//no fucking clue how
+		
+		return true;
+	}
+	
+}

@@ -5,6 +5,11 @@ public abstract class Argument {
 	private String head;
 	private Modifier mod;
 	
+	public String getHead()
+	{
+		return head;
+	}
+	
 	// make sure not to call setHead() more than once for GerundPhrases and InfinitivePhrases
 	// we'll see
 	public void setHead(String s) 
@@ -18,11 +23,30 @@ public abstract class Argument {
 		mod = m;
 	}
 	
-	public abstract void ReadIn(Queue<String> word);
+	public abstract boolean ReadIn(Queue<String> word);
 	
-	public String getHead()
+	static public Argument castArg(Queue<String> word)
 	{
-		return head;
+		if (word.peek() == "det, adv, adj, or noun")
+		{
+			Argument arg = new NounPhrase();
+			return arg;
+		}
+		else if (word.peek() == "present participle")
+		{
+			Argument arg = new GerundPhrase();
+			return arg;
+		}
+		else if(word.peek() == "to")
+		{
+			Argument arg = new InfinitivePhrase();
+			return arg;
+		}
+		else
+		{
+			Argument arg = new EmptyArgument();
+			return arg;
+		}
 	}
 	
 }
