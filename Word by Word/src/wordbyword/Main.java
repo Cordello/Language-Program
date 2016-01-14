@@ -26,7 +26,8 @@ public class Main {
 		    catch (IllegalAccessException e) {
 		       // handle exception
 		    }
-				
+
+		//This creates the GUI that Andrew coded, to get input and process each word when the user presses space
 		GUI gui = new GUI();
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setSize(400, 300);
