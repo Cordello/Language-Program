@@ -1,11 +1,24 @@
+import java.util.Queue;
 
 public class PrepositionalPhrase extends Modifier {
-
-	/*
 	
-	has
-	a preposition //just a string
-	a noun like phrase //noun phrase, gerund phrase, noun clause, NOT infinitive
-	
-	*/
+	public void ReadIn(Queue<String> word) {
+		
+		//Key is a preposition
+		setKey(word.poll());
+		
+		//Read in the subject, there must be one
+		Argument sub = Argument.castArg(word);
+		if(sub.ReadIn(word) == false)
+		{
+			//ERROR, needs a subject
+		}
+		else if(sub instanceof InfinitivePhrase)
+		{
+			//WEIRD, an infinitive after a preposition can sound odd
+		}
+		setSubject(sub);
+		
+		//No predicate
+	}
 }

@@ -1,0 +1,49 @@
+import java.util.Queue;
+
+public class RelativeClause extends Modifier {
+	
+	/*
+	
+	has
+	a relative pronoun
+	a sentence //subject could be the relative pronoun, must be a statement
+	//should not have an infinitive phrase as subject
+	
+	*/
+	
+	public void ReadIn(Queue<String> word) {
+		
+		setKey(word.poll());
+		
+		if (word.peek() == "det, adv, adj, or noun")
+		{
+			NounPhrase nPh = new NounPhrase();
+			nPh.ReadIn(word);
+			setSubject(nPh);
+		}
+		else if (word.peek() == "to")
+		{
+			//REALLY weird
+			InfinitivePhrase inf = new InfinitivePhrase();
+			inf.ReadIn(word);
+			setSubject(inf);
+		}
+		else if (word.peek() == "gerund")
+		{
+			GerundPhrase ger = new GerundPhrase();
+			ger.ReadIn(word);
+			setSubject(ger);
+		}
+		
+		if (word.peek() == "adv or verb")
+		{
+			Predicate pred = new Predicate();
+			pred.ReadIn(word);
+			setPredicate(pred);
+		}
+		else
+		{
+			//ERROR, you need at least something
+		}
+	}
+}

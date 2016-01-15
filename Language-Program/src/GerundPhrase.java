@@ -1,67 +1,73 @@
 import java.util.Queue;
 
 public class GerundPhrase extends Argument {
-	
-	//only if gerund is transitive
-	private Argument directOb; //weird if GerundPhrase
-	
-	//head must be a present participle (gerund)
-	/*public void setHead(String s) {
-		
-		getHead() = s;
-	}*/
+
+	private Argument directOb;
 	
 	public void setDirectOb(Argument dirOb) {
-		
 		directOb = dirOb;
 	}
 	
-	public void ReadIn(Queue<String> word) {
+	public boolean ReadIn(Queue<String> word) {
 		
+		//Head is a present participle, ie a gerund
 		setHead(word.poll());
 		
-		if(getHead() == "transitive")
+		//If the gerund is strictly transitive, it requires a direct object
+		if(getHead() == "transitive and NOT intransitive")
 		{
-			if (word.peek() == "det, adv, adj, or noun")
+			Argument dirOb = Argument.castArg(word);
+			if (dirOb.ReadIn(word) == false) //false means EmptyArgument
 			{
-				NounPhrase nPh = new NounPhrase();
-				nPh.ReadIn(word);
-				setDirectOb(nPh);
+				//ERROR, need a direct object
 			}
-			//should resolve whether Modifier is to gerund(head) or DO
-			else if (word.peek() == "to")
+			else if(dirOb instanceof GerundPhrase )
 			{
-				//a little weird
-				InfinitivePhrase inf = new InfinitivePhrase();
-				inf.ReadIn(word);
-				setDirectOb(inf);
+				//WEIRD, a gerund on a gerund is odd sometimes
 			}
-			else if (word.peek() == "gerund")
+			
+			setDirectOb(dirOb);
+		}
+		
+		//If the gerund could be either transitive or intransitive, direct object possible but not required
+		else if(getHead() == "transitive and intransitive")
+		{
+			Argument dirOb = Argument.castArg(word);
+			dirOb.ReadIn(word);
+			setDirectOb(dirOb);
+		}
+		
+		//If gerund is intransitive, there must be no direct object
+		else 
+		{
+			Argument dirOb = Argument.castArg(word);
+			if (dirOb.ReadIn(word))
 			{
-				//REALLY weird
-				GerundPhrase ger = new GerundPhrase();
-				ger.ReadIn(word);
-				setDirectOb(ger);
-			}
-			else
-			{
-				//ERROR, need a DO
+				//ERROR must have no direct object
 			}
 		}
-		//if can be transitive OR intransitive, wait and see if there is a DO or not
+		
+		//Read in any modifiers, if they exist
 		while (word.peek() == "prep or rel pro")
 		{
 			if (word.peek() == "prep")
 			{
-				//Read in prepositional phrase
+				PrepositionalPhrase prep = new PrepositionalPhrase();
+				prep.ReadIn(word);
+				setMod(prep);
 			}
-			if (word.peek() == "rel pro")
+			else if (word.peek() == "rel pro")
 			{
-				//Read in relative clause
-			} 
-			//maybe possibly could be subordinate clause?
+				RelativeClause rel = new RelativeClause();
+				rel.ReadIn(word);
+				setMod(rel);
+			}
 		}
 		//should resolve whether (other) modifiers mod gerund(head), Arg of DO, or Args of modifiers
+		//no fucking clue how
+		
+		//Not an empty object
+		return true;
 	}
 	
 }

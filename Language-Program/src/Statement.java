@@ -25,6 +25,7 @@ public class Statement extends Sentence {
 		}
 		//could also be a relative clause, which would make it a noun clause
 		
+		
 		//once that's done, start on the verbs
 		if (word.peek() == "adv or verb")
 		{

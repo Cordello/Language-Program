@@ -1,0 +1,24 @@
+import java.util.Queue;
+
+public class InfinitivePhrase extends Argument {
+	
+	//only if infinitive is transitive
+	private Argument directOb;
+	
+	//head must be an infinitive, e.g. "to be"
+	/*public void setHead(String s) {
+		
+	}*/
+	
+	public void setDirectOb(Argument dirOb) {
+		
+	}
+	
+	
+	public boolean ReadIn(Queue<String> word) {
+		
+		//should resolve if Modifier is to infinitive or DO
+		
+		return true;
+	}
+}

@@ -1,0 +1,20 @@
+import java.util.Queue;
+
+public class PrepositionalPhrase extends Modifier {
+	
+	public void ReadIn(Queue<String> word) {
+		
+		setKey(word.poll());
+		
+		Argument sub = Argument.castArg(word);
+		if(sub.ReadIn(word) == false)
+		{
+			//ERROR, needs a subject
+		}
+		else if(sub instanceof InfinitivePhrase)
+		{
+			//ERROR, style, prepositions with infinitive phrases are WEIRD
+		}
+		setSubject(sub);
+	}
+}

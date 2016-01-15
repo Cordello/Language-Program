@@ -1,0 +1,22 @@
+import java.util.Queue;
+
+public class SubordinateClause extends Modifier{
+	
+	public void ReadIn(Queue<String> word) {
+		setKey(word.poll());
+		
+		Argument sub = Argument.castArg(word);
+		setSubject(sub);
+		
+		if (word.peek() == "adv or verb")
+		{
+			Predicate pred = new Predicate();
+			pred.ReadIn(word);
+			setPredicate(pred);
+		}
+		else
+		{
+			//ERROR, you need a predicate
+		}
+	}
+}
